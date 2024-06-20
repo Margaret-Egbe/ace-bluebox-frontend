@@ -5,24 +5,24 @@ import salad2 from "../assets/salad2.png";
 
 const Hero = () => {
  return (
-    <section className="hero py-20 md:flex md:flex-col lg:flex-row pl-7 mb-11">
+    <section className=" py-20 md:flex md:flex-col lg:flex-row mb-11 mt-2 bg-white">
 
-      <div className="max-w-xl md:mr-10 mb-10 md:mb-0 lg:flex-grow-1">
+      <div className="ml-9 mr-9 max-w-xl md:mr-10 mb-10 md:mb-0 lg:flex-grow-1">
         <h1 className="font-semibold text-5xl md:text-7xl">
-          Elevate Every Moment with the Magic of <br />
-          <span className="text-primary" style={{ whiteSpace: "nowrap" }}>
-            Ace Shawarma
-          </span>
+          Elevate Every Moment with the Magic of Bluebox
         </h1>
-        <p className="my-6 text-gray-500 text-lg">
-          Ace Shawarma, as a culinary delight, has the power to transform every
+
+        <p className="my-6 text-gray-500
+        text-2xl 
+        ">
+          Bluebox Shawarma and Burger, as a culinary delight, has the power to transform every
           experience into a perfect symphony of flavors and satisfaction.
         </p>
         <div className="flex gap-4 items-center text-sm">
-          <button className="bg-primary flex gap-2 text-white px-4 py-2 rounded-full uppercase items-center">
+          <button className="gap-2 text-white px-4 py-2 rounded-full uppercase items-center bg-[#6375BD]">
             Order now
           </button>
-          <button className="flex gap-2 text-gray-600 py-2 font-semibold">
+          <button className="flex gap-2 text-gray-600 py-2 font-semibold ">
             Learn more
           </button>
         </div>

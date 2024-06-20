@@ -1,82 +1,56 @@
-{/*}
+
 import { CircleUserRound } from "lucide-react";
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "./ui/dropdown-menu";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "./ui/dropdown-menu";
 import { useAuth0 } from "@auth0/auth0-react";
 import { Link } from "react-router-dom";
 import { Separator } from "./ui/separator";
 import { Button } from "./ui/button";
 
 const UsernameMenu = () => {
-    const { user, logout } = useAuth0();
+  const { user, logout } = useAuth0();
+  const greeting = `Welcome, ${user?.email}`;
+
   return (
     <DropdownMenu>
-        <DropdownMenuTrigger className="flex items-center px-3 font-bold hover:text-orange-500 gap-2">
-           <CircleUserRound className="text-orange-500" />
-            {user?.email}
-        </DropdownMenuTrigger>
+      <DropdownMenuTrigger className="flex items-center px-3 font-bold hover:text-[#6375BD] gap-2">
+        <CircleUserRound className="text-[#6375BD]" />
+        {greeting}
+      </DropdownMenuTrigger>
 
-        <DropdownMenuContent>
-           <DropdownMenuItem>
-            <Link to="/user-profile"
-            className="font-bold hover:text-orange-400"
-            >
-                User Profile
-            </Link>
-           </DropdownMenuItem>
+      <DropdownMenuContent>
+        
+      <DropdownMenuItem>
+          <Link to="/manage-restaurant" className="font-bold hover:text-[#6375BD]">
+            Manage Restaurant
+          </Link>
+        </DropdownMenuItem>
+ 
+        <Separator />
 
-          <Separator />
+        <DropdownMenuItem>
+          <Link to="/user-profile" className="font-bold hover:text-[#6375BD]">
+            User Profile
+          </Link>
+        </DropdownMenuItem>
 
-          <DropdownMenuItem>
-              <Button onClick={() => logout()}
-               className="flex flex-1 font-bold bg-orange-500">
-                Log Out
-              </Button>
-         </DropdownMenuItem>
-        </DropdownMenuContent>
+        <Separator />
+
+        <DropdownMenuItem>
+          <Button
+            onClick={() => logout()}
+            className="flex flex-1 font-bold bg-[#6375BD]"
+          >
+            Log Out
+          </Button>
+        </DropdownMenuItem>
+      </DropdownMenuContent>
     </DropdownMenu>
   );
 };
 
 export default UsernameMenu;
-*/}
-
-
-import { CircleUserRound } from "lucide-react";
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "./ui/dropdown-menu";
-import { useAuth0 } from "@auth0/auth0-react";
-import { Link } from "react-router-dom";
-import { Separator } from "./ui/separator";
-import { Button } from "./ui/button";
-
-const UsernameMenu = () => {
-    const { user, logout } = useAuth0();
-    const greeting = `Welcome, ${user?.email}`;
-
-    return (
-        <DropdownMenu>
-            <DropdownMenuTrigger className="flex items-center px-3 font-bold hover:text-orange-500 gap-2">
-                <CircleUserRound className="text-orange-500" />
-                {greeting}
-            </DropdownMenuTrigger>
-
-            <DropdownMenuContent>
-                <DropdownMenuItem>
-                    <Link to="/user-profile" className="font-bold hover:text-orange-400">
-                        User Profile
-                    </Link>
-                </DropdownMenuItem>
-
-                <Separator />
-
-                <DropdownMenuItem>
-                    <Button onClick={() => logout()} className="flex flex-1 font-bold bg-orange-500">
-                        Log Out
-                    </Button>
-                </DropdownMenuItem>
-            </DropdownMenuContent>
-        </DropdownMenu>
-    );
-};
-
-export default UsernameMenu;
-
