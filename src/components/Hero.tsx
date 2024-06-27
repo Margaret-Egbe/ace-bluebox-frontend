@@ -1,3 +1,4 @@
+
 import hero from "../assets/Hero-bg-lg.png";
 import leaf from "../assets/leaf.png";
 import onion from "../assets/onion.png";
@@ -5,9 +6,9 @@ import salad2 from "../assets/salad2.png";
 
 const Hero = () => {
  return (
-    <section className=" py-20 md:flex md:flex-col lg:flex-row mb-11 mt-2 bg-white">
+    <section className=" py-10 md:flex md:flex-col lg:flex-row mb-11 mt-2 bg-white">
 
-      <div className="ml-9 mr-9 max-w-xl md:mr-10 mb-10 md:mb-0 lg:flex-grow-1">
+      <div className="ml-9 mr-9 max-w-xl md:mr-10 mb-10 md:mb-0  lg:flex-grow-1">
         <h1 className="font-semibold text-5xl md:text-7xl">
           Elevate Every Moment with the Magic of Bluebox
         </h1>
@@ -28,7 +29,7 @@ const Hero = () => {
         </div>
       </div>
 
-      <div className="relative max-w-xl mt-10 md:mt-0 md:w-1/2">
+      <div className="relative mx-auto max-w-xl mt-10 md:mt-0 md:w-1/2">
         {/* onion beneath */}
         <div className="absolute left-0 top-2/3 transform -translate-y-3/3">
           <img
@@ -39,7 +40,7 @@ const Hero = () => {
         </div>
 
         {/* Salad on the right side */}
-        <div className="absolute right-0 top-2/2 transform -translate-y-1/2">
+        <div className="absolute right-0 top-1/4 transform -translate-y-2/3">
           <img src={salad2} className="h-40 w-40" alt="salad" />
         </div>
 
@@ -52,7 +53,7 @@ const Hero = () => {
           />
 
           {/* Leaf at the top */}
-          <div className="absolute top-0 left-2/2 transform -translate-x-1/3">
+          <div className="absolute top-0 left-1/4 transform -translate-x-2/3">
             <img src={leaf} className="h-40 w-40" alt="leaf" />
           </div>
         </div>
@@ -62,3 +63,7 @@ const Hero = () => {
 };
 
 export default Hero;
+
+
+
+
