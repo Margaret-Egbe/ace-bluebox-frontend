@@ -39,7 +39,7 @@ const Header = () => {
   const isMobile = useMediaQuery("(max-width: 768px)");
 
   return (
-    <div className="border-b-2 py-6 bg-white shadow-md">
+    <div className="border-b-2 py-3 bg-white shadow-md">
       <div className="container mx-auto flex justify-between items-center">
         <Link
           to="/"
