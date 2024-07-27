@@ -13,6 +13,8 @@ import { Button } from "@/components/ui/button";
 import { useEffect } from "react";
 import { Restaurant } from "@/types";
 
+const noEmojisRegex = /^[\w\s\d~`!@#$%^&*()_+\-=[\]{}|;:'",.<>?\\\/]*$/;
+
 const formSchema = z
   .object({
     restaurantName: z.string({
@@ -27,7 +29,7 @@ const formSchema = z
     deliveryPrice: z.coerce.number({
       required_error: "delivery price is required",
       invalid_type_error: "must be a valid number",
-    }),
+    }).max(1000000, "delivery price cannot exceed 1,000,000"),
     estimatedDeliveryTime: z.coerce.number({
       required_error: "estimated delivery time is required",
       invalid_type_error: "must be a valid number",
@@ -37,7 +39,7 @@ const formSchema = z
     }),
     menuItems: z.array(
       z.object({
-        name: z.string().min(1, "name is required"),
+        name: z.string().min(1, "name is required").regex(noEmojisRegex, "name cannot contain emojis"),
         price: z.coerce.number().min(1, "price is required"),
       })
     ),
