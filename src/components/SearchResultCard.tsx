@@ -49,7 +49,6 @@ const SearchResultCard = ({ restaurant }: Props) => {
           </div>
         </div>
       </div>
-
     </Link>
   );
 };
