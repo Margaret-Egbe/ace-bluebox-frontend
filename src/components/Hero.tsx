@@ -1,63 +1,30 @@
 
-import hero from "../assets/Hero-bg-lg.png";
-import leaf from "../assets/leaf.png";
-import onion from "../assets/onion.png";
-import salad2 from "../assets/salad2.png";
+import foodImg from "../assets/foodImage.png";
 
 const Hero = () => {
  return (
-    <section className=" py-10 md:flex md:flex-col lg:flex-row mb-11 mt-2 bg-white">
+    <section className=" py-11 md:flex md:flex-col lg:flex-row mb-9 mt-5 bg-white">
 
       <div className="ml-9 mr-9 max-w-xl md:mr-10 mb-10 md:mb-0  lg:flex-grow-1">
-        <h1 className="font-semibold text-5xl md:text-7xl">
-          Elevate Every Moment with the Magic of Bluebox
+        <h1 className="font-semibold text-5xl md:text-6xl">
+          Elevate Every Meal with the Magic of OrderBite
+         
         </h1>
 
         <p className="my-6 text-gray-500
         text-2xl 
         ">
-          Bluebox Shawarma and Burger, as a culinary delight, has the power to transform every
-          experience into a perfect symphony of flavors and satisfaction.
-        </p>
-        <div className="flex gap-4 items-center text-sm">
-          <button className="gap-2 text-white px-4 py-2 rounded-full uppercase items-center bg-[#6375BD]">
-            Order now
-          </button>
-          <button className="flex gap-2 text-gray-600 py-2 font-semibold ">
-            Learn more
-          </button>
-        </div>
+          OrderBite brings a symphony of flavors to your doorstep, transforming every meal into a delightful experience. Discover the ease and joy of ordering your favorite dishes with just a few clicks.
+          </p>
+       
       </div>
 
-      <div className="relative mx-auto max-w-xl mt-10 md:mt-0 md:w-1/2">
-        {/* onion beneath */}
-        <div className="absolute left-0 top-2/3 transform -translate-y-3/3">
-          <img
-            src={onion}
-            className="h-40 w-40 rounded-full"
-            alt="chopped-onion"
-          />
-        </div>
+      <div className="relative mx-auto max-w-4xl mt-10 md:mt-0 md:w-1/2 flex justify-center 
+      ">
+  <img src={foodImg} alt="Food" className="w-full h-auto max-w-sm mx-auto " />
+</div>
 
-        {/* Salad on the right side */}
-        <div className="absolute right-0 top-1/4 transform -translate-y-2/3">
-          <img src={salad2} className="h-40 w-40" alt="salad" />
-        </div>
-
-        {/* Shawarma in the center */}
-        <div className="relative">
-          <img
-            src={hero}
-            className="w-full max-h-[1000px] object-cover"
-            alt="shawarma"
-          />
-
-          {/* Leaf at the top */}
-          <div className="absolute top-0 left-1/4 transform -translate-x-2/3">
-            <img src={leaf} className="h-40 w-40" alt="leaf" />
-          </div>
-        </div>
-      </div>
+      
     </section>
   );
 };

@@ -32,7 +32,7 @@ const CuisineFilter = ({
 
   return (
     <>
-      <div className="flex justify-between items-center px-2">
+      <div className="flex justify-between items-center px-2 ">
         <div className="text-md font-semibold mb-2">Filter By Cuisine</div>
 
         <div
@@ -43,7 +43,7 @@ const CuisineFilter = ({
         </div>
       </div>
 
-      <div className="space-y-2 flex flex-col">
+      <div className="space-y-2 flex flex-col bg-white rounded-lg py-5 px-5">
         {cuisineList
           .slice(0, isExpanded ? cuisineList.length : 7)
           .map((cuisine) => {

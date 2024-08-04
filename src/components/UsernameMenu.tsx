@@ -1,4 +1,3 @@
-
 import { CircleUserRound } from "lucide-react";
 import {
   DropdownMenu,
@@ -13,19 +12,20 @@ import { Button } from "./ui/button";
 
 const UsernameMenu = () => {
   const { user, logout } = useAuth0();
-  const greeting = `Welcome, ${user?.email}`;
+  const firstName = user?.name?.split(" ")[0];
+  const greeting = `Welcome, ${firstName}`;
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger className="flex items-center px-3 font-bold hover:text-[#6375BD] gap-2">
-        <CircleUserRound className="text-[#6375BD]" />
+      <DropdownMenuTrigger className="flex items-center px-3 font-bold hover:text-[#2e8b57] gap-2">
+        <CircleUserRound className="text-[#2e8b57]" />
         {greeting}
       </DropdownMenuTrigger>
 
       <DropdownMenuContent>
         
-      <DropdownMenuItem>
-          <Link to="/manage-restaurant" className="font-bold hover:text-[#6375BD]">
+        <DropdownMenuItem>
+          <Link to="/manage-restaurant" className="font-bold hover:text-[#2e8b57]">
             Manage Restaurant
           </Link>
         </DropdownMenuItem>
@@ -33,7 +33,7 @@ const UsernameMenu = () => {
         <Separator />
 
         <DropdownMenuItem>
-          <Link to="/user-profile" className="font-bold hover:text-[#6375BD]">
+          <Link to="/user-profile" className="font-bold hover:text-[#2e8b57]">
             User Profile
           </Link>
         </DropdownMenuItem>
@@ -43,7 +43,7 @@ const UsernameMenu = () => {
         <DropdownMenuItem>
           <Button
             onClick={() => logout()}
-            className="flex flex-1 font-bold bg-[#6375BD]"
+            className="flex flex-1 font-bold bg-[#2e8b57]"
           >
             Log Out
           </Button>

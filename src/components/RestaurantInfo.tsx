@@ -8,9 +8,9 @@ type Props = {
 
 const RestaurantInfo = ({ restaurant }: Props) => {
   return (
-    <Card className="border-sla">
+    <Card className="border-sla bg-white">
       <CardHeader>
-        <CardTitle className="text-3xl font-bold tracking-tight">
+        <CardTitle className="text-3xl font-bold tracking-tight ">
           {restaurant.restaurantName}
         </CardTitle>
 

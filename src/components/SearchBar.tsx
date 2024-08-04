@@ -55,7 +55,7 @@ const SearchBar = ({ onSubmit, onReset, placeHolder, searchQuery }: Props) => {
         <Search
           strokeWidth={2.5}
           size={30}
-          className="ml-1 text-[#6375BD] hidden md:block"
+          className="ml-1 text-[#2e8b57] hidden md:block"
         />
 
         <FormField
