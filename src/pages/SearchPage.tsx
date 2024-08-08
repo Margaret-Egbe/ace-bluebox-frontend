@@ -73,9 +73,13 @@ const SearchPage = () => {
   }
 
   if (!results?.data || !city) {
-    return <span>No results found</span>;
-  }
+    return <span>
+    No results found! <br />
+    Note: OrderBite serves only Abuja and Lagos or any Restaurant/city you have created in the Manage Restaurant section.
 
+</span>;
+  }
+ 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-[250px_1fr] gap-5">
       <div id="cuisines-list">

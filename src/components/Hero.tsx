@@ -8,7 +8,6 @@ const Hero = () => {
       <div className="ml-9 mr-9 max-w-xl md:mr-10 mb-10 md:mb-0  lg:flex-grow-1">
         <h1 className="font-semibold text-5xl md:text-6xl">
           Elevate Every Meal with the Magic of OrderBite
-         
         </h1>
 
         <p className="my-6 text-gray-500
