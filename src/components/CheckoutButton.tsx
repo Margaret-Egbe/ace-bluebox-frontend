@@ -3,16 +3,18 @@ import { useLocation } from "react-router-dom";
 import { Button } from "./ui/button";
 import LoadingButton from "./LoadingButton";
 import { Dialog, DialogContent, DialogTrigger } from "./ui/dialog";
-import UserProfileForm, { UserFormData } from "@/forms/user-profile-form/UserProfileForm";
+import UserProfileForm, {
+  UserFormData,
+} from "@/forms/user-profile-form/UserProfileForm";
 import { useGetMyUser } from "@/api/MyUserApi";
 
 type Props = {
-    onCheckout: (userFormData: UserFormData) => void;
-    disabled: boolean;
-    isLoading: boolean;
+  onCheckout: (userFormData: UserFormData) => void;
+  disabled: boolean;
+  isLoading: boolean;
 };
 
-const CheckoutButton = ({ onCheckout, disabled, isLoading } : Props) => {
+const CheckoutButton = ({ onCheckout, disabled, isLoading }: Props) => {
   const {
     isAuthenticated,
     isLoading: isAuthLoading,
@@ -25,15 +27,17 @@ const CheckoutButton = ({ onCheckout, disabled, isLoading } : Props) => {
 
   const onLogin = async () => {
     await loginWithRedirect({
-        appState: {
-            returnTo: pathname,
-        },
+      appState: {
+        returnTo: pathname,
+      },
     });
-  }
+  };
 
   if (!isAuthenticated) {
     return (
-        <Button onClick={onLogin} className="bg-[#2E8B57] flex-1">Log in to checkout</Button>
+      <Button onClick={onLogin} className="bg-[#FF2442] flex-1">
+        Log in to checkout
+      </Button>
     );
   }
 
@@ -43,24 +47,22 @@ const CheckoutButton = ({ onCheckout, disabled, isLoading } : Props) => {
 
   return (
     <Dialog>
-        <DialogTrigger asChild>
-           <Button disabled={disabled} className="bg-[#2E8B57] flex-1">
-            Go to checkout
-            </Button>
-        </DialogTrigger>
-        <DialogContent className="max-w-[425px] md:min-w-[700px] bg-gray-50">
-          <UserProfileForm 
-            currentUser={currentUser}
-            onSave={onCheckout}
-            isLoading={isGetUserLoading}
-            title="Confirm Delivery Details"
-            buttonText="Continue to payment"
-          />
-        </DialogContent>
+      <DialogTrigger asChild>
+        <Button disabled={disabled} className="bg-[#FF2442] flex-1">
+          Go to checkout
+        </Button>
+      </DialogTrigger>
+      <DialogContent className="max-w-[425px] md:min-w-[700px] bg-gray-50">
+        <UserProfileForm
+          currentUser={currentUser}
+          onSave={onCheckout}
+          isLoading={isGetUserLoading}
+          title="Confirm Delivery Details"
+          buttonText="Continue to payment"
+        />
+      </DialogContent>
     </Dialog>
-  )
-
-
+  );
 };
 
 export default CheckoutButton;

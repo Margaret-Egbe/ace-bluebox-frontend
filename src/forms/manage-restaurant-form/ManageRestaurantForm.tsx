@@ -1,4 +1,3 @@
-
 import { Form } from "@/components/ui/form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
@@ -26,10 +25,12 @@ const formSchema = z
     country: z.string({
       required_error: "country is required",
     }),
-    deliveryPrice: z.coerce.number({
-      required_error: "delivery price is required",
-      invalid_type_error: "must be a valid number",
-    }).max(1000000, "delivery price cannot exceed 1,000,000"),
+    deliveryPrice: z.coerce
+      .number({
+        required_error: "delivery price is required",
+        invalid_type_error: "must be a valid number",
+      })
+      .max(1000000, "delivery price cannot exceed 1,000,000"),
     estimatedDeliveryTime: z.coerce.number({
       required_error: "estimated delivery time is required",
       invalid_type_error: "must be a valid number",
@@ -39,7 +40,10 @@ const formSchema = z
     }),
     menuItems: z.array(
       z.object({
-        name: z.string().min(1, "name is required").regex(noEmojisRegex, "name cannot contain emojis"),
+        name: z
+          .string()
+          .min(1, "name is required")
+          .regex(noEmojisRegex, "name cannot contain emojis"),
         price: z.coerce.number().min(1, "price is required"),
       })
     ),
@@ -49,9 +53,9 @@ const formSchema = z
   .refine((data) => data.imageUrl || data.imageFile, {
     message: "Either image URL or image File must be provided",
     path: ["imageFile"],
-  });  
+  });
 
-type RestaurantFormData = z.infer<typeof formSchema>
+type RestaurantFormData = z.infer<typeof formSchema>;
 
 type Props = {
   restaurant?: Restaurant;
@@ -59,13 +63,12 @@ type Props = {
   isLoading: boolean;
 };
 
-
-const ManageRestaurantForm = ({ onSave, isLoading, restaurant}: Props) => {
+const ManageRestaurantForm = ({ onSave, isLoading, restaurant }: Props) => {
   const form = useForm<RestaurantFormData>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-        cuisines: [],
-        menuItems: [{ name: "", price: 0}]
+      cuisines: [],
+      menuItems: [{ name: "", price: 0 }],
     },
   });
 
@@ -92,28 +95,27 @@ const ManageRestaurantForm = ({ onSave, isLoading, restaurant}: Props) => {
     form.reset(updatedRestaurant);
   }, [form, restaurant]);
 
-  
   const onSubmit = (formDataJson: RestaurantFormData) => {
     const formData = new FormData();
-  
+
     formData.append("restaurantName", formDataJson.restaurantName);
     formData.append("city", formDataJson.city);
     formData.append("country", formDataJson.country);
-  
+
     formData.append(
       "deliveryPrice",
       (formDataJson.deliveryPrice * 100).toString()
     );
-  
+
     formData.append(
       "estimatedDeliveryTime",
       formDataJson.estimatedDeliveryTime.toString()
     );
-  
+
     formDataJson.cuisines.forEach((cuisine, index) => {
       formData.append(`cuisines[${index}]`, cuisine);
     });
-  
+
     formDataJson.menuItems.forEach((menuItem, index) => {
       formData.append(`menuItems[${index}][name]`, menuItem.name);
       formData.append(
@@ -121,17 +123,20 @@ const ManageRestaurantForm = ({ onSave, isLoading, restaurant}: Props) => {
         (menuItem.price * 100).toString()
       );
     });
-  
+
     if (formDataJson.imageFile) {
       formData.append(`imageFile`, formDataJson.imageFile);
     }
- 
+
     onSave(formData);
   };
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 bg-white p-5 rounded-lg">
+      <form
+        onSubmit={form.handleSubmit(onSubmit)}
+        className="space-y-8 bg-white p-5 rounded-lg"
+      >
         <DetailsSection />
         <Separator />
         <CuisinesSection />
@@ -139,12 +144,16 @@ const ManageRestaurantForm = ({ onSave, isLoading, restaurant}: Props) => {
         <MenuSection />
         <Separator />
         <ImageSection />
-        {isLoading ? <LoadingButton /> : <Button className="bg-[#2e8b57]" type="submit">Submit</Button>}
+        {isLoading ? (
+          <LoadingButton />
+        ) : (
+          <Button className="bg-[#FF2442]" type="submit">
+            Submit
+          </Button>
+        )}
       </form>
     </Form>
   );
 };
 
 export default ManageRestaurantForm;
-
-

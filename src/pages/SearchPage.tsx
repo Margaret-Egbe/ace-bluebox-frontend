@@ -1,4 +1,3 @@
-
 import { useSearchRestaurants } from "@/api/RestaurantApi";
 import CuisineFilter from "@/components/CuisineFilter";
 import PaginationSelector from "@/components/PaginationSelector";
@@ -29,13 +28,13 @@ const SearchPage = () => {
 
   const { results, isLoading } = useSearchRestaurants(searchState, city);
 
-   const setSortOption = (sortOption: string) => {
+  const setSortOption = (sortOption: string) => {
     setSearchState((prevState) => ({
       ...prevState,
       sortOption,
-      page:1,
-    }))
-   }
+      page: 1,
+    }));
+  };
 
   const setSelectedCuisines = (selectedCuisines: string[]) => {
     setSearchState((prevState) => ({
@@ -69,17 +68,19 @@ const SearchPage = () => {
   };
 
   if (isLoading) {
-    return <span>Loading ...</span>;
+    return <div>Loading....</div>;
   }
 
   if (!results?.data || !city) {
-    return <span>
-    No results found! <br />
-    Note: OrderBite serves only Abuja and Lagos or any Restaurant/city you have created in the Manage Restaurant section.
-
-</span>;
+    return (
+      <span>
+        No results found! <br />
+        Note: OrderBite serves only Abuja and Lagos or any Restaurant/city you
+        have created in the Manage Restaurant section.
+      </span>
+    );
   }
- 
+
   return (
     <div className="grid grid-cols-1 lg:grid-cols-[250px_1fr] gap-5">
       <div id="cuisines-list">
@@ -101,11 +102,11 @@ const SearchPage = () => {
         />
 
         <div className="flex justify-between flex-col gap-3 lg:flex-row">
-        <SearchResultInfo total={results.pagination.total} city={city} />
-        <SortOptionDropdown 
-         sortOption={searchState.sortOption}
-         onChange={(value) => setSortOption(value)}
-        />
+          <SearchResultInfo total={results.pagination.total} city={city} />
+          <SortOptionDropdown
+            sortOption={searchState.sortOption}
+            onChange={(value) => setSortOption(value)}
+          />
         </div>
 
         {results.data.map((restaurant) => (

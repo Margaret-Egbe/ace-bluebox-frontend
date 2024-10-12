@@ -2,16 +2,16 @@
 import { Link } from "react-router-dom";
 import { useMediaQuery } from "@mui/material";
 import MobileNav from "./MobileNav";
-import MainNav from "./MainNav";
 import mainLogo from "../assets/mainLogo.svg";
+import MainNav from "./MainNav";
 import mobileLogo from "../assets/mobileLogo.svg";
 
 const Header = () => {
   const isMobile = useMediaQuery("(max-width: 768px)");
 
   return (
-    <div className="border-b-2 py-1 bg-white shadow-md">
-      <div className="container mx-auto flex justify-between items-center ">
+    <div className=" py-1 bg-white shadow-md">
+      <div className="container mx-auto flex justify-between items-center mt-[10px]">
         <Link
           to="/"
           style={{

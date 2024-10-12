@@ -27,3 +27,4 @@ export const cuisineList = [
     "Tapas",
     "Vegan",
 ];
+

@@ -55,7 +55,7 @@ const SearchBar = ({ onSubmit, onReset, placeHolder, searchQuery }: Props) => {
         <Search
           strokeWidth={2.5}
           size={30}
-          className="ml-1 text-[#2e8b57] hidden md:block"
+          className="ml-1 text-[#FF2442] hidden md:block"
         />
 
         <FormField
@@ -67,7 +67,6 @@ const SearchBar = ({ onSubmit, onReset, placeHolder, searchQuery }: Props) => {
                 <Input
                   {...field}
                   className="border-none shadow-none text-xl focus-visible:ring-0 
-                  
                   "
                   placeholder={placeHolder}
                 />
@@ -80,14 +79,15 @@ const SearchBar = ({ onSubmit, onReset, placeHolder, searchQuery }: Props) => {
           onClick={handleReset}
           type="button"
           variant="outline"
-          className="rounded-full"
+          className="rounded-full  hidden md:block"
         >
           Reset
         </Button>
 
-        <Button type="submit" className="rounded-full bg{#6375BD}">
+        <Button type="submit" className="rounded-full bg{#6375BD} ">
           Search
         </Button>
+        
       </form>
     </Form>
   );
